@@ -1,11 +1,22 @@
-import { StackScreenProps } from '@react-navigation/stack';
-import React from 'react';
+import React, { useEffect } from 'react';
+// import { StackScreenProps } from '@react-navigation/stack';
 import { Button, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from '../theme/appTheme';
+import { DrawerScreenProps } from '@react-navigation/drawer';
 
-interface Props extends StackScreenProps<any, any> { }; // lo extiende de la propiedades del stack para el tipado
+// interface Props extends StackScreenProps<any, any> { }; // lo extiende de la propiedades del stack para el tipado
+interface Props extends DrawerScreenProps<any, any> { }; // lo extiende de la propiedades del stack para el tipado
 
 export const Pagina1Screen = ({ navigation }: Props) => {
+
+    useEffect(() => {
+        navigation.setOptions({
+            headerLeft: () => (<Button
+                title='Menu'
+                onPress={() => { navigation.toggleDrawer() }}
+            />)
+        })
+    }, [])
 
 
 
@@ -21,10 +32,10 @@ export const Pagina1Screen = ({ navigation }: Props) => {
 
             <View style={{ flexDirection: 'row' }}>
                 <TouchableOpacity
-                style={{
-                    ...styles.botonGrande,
-                    backgroundColor:'#5856d6'
-                }}
+                    style={{
+                        ...styles.botonGrande,
+                        backgroundColor: '#5856d6'
+                    }}
                     onPress={() => navigation.navigate('PersonaScreen', {
                         id: 1,
                         nombre: "Pedro"
@@ -35,10 +46,10 @@ export const Pagina1Screen = ({ navigation }: Props) => {
 
 
                 <TouchableOpacity
-                style={{
-                    ...styles.botonGrande,
-                    backgroundColor:'#ff9427'
-                }}
+                    style={{
+                        ...styles.botonGrande,
+                        backgroundColor: '#ff9427'
+                    }}
                     onPress={() => navigation.navigate('PersonaScreen', {
                         id: 2,
                         nombre: "Maria"
