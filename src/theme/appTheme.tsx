@@ -16,12 +16,32 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center',
         marginRight: 10
-
     },
     botonGrandeTexto: {
         color: 'white',
         fontSize: 18,
         fontWeight: "bold"
+    },
+    avatarContainer: {
+        alignItems: 'center',
+        marginTop: 20
+    },
+    avatar: {
+        width: 150,
+        height: 150,
+        borderRadius: 100,
+    },
+
+    menuContainer: {
+        marginVertical: 30,
+        marginHorizontal: 30,
+
+    },
+    menuBoton: {
+        marginVertical: 10
+    },
+    menuText: {
+        fontSize: 20
     }
 
 });
