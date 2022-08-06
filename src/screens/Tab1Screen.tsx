@@ -22,7 +22,6 @@ export const Tab1Screen = () => {
         }}>
             <Text style={styles.title}>Iconos</Text>
             <Text >
-
                 <TouchableIcon nameIcon="airplane-outline" />
                 <TouchableIcon nameIcon="football-outline" />
                 <TouchableIcon nameIcon="aperture-outline" />
