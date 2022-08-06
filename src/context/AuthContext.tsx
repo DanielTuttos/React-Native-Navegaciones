@@ -24,6 +24,7 @@ export interface AuthContextProps {
     signIn: () => void;
     logout: () => void;
     chageFavoriteIcon: (iconName: string) => void;
+    changeUsername: (username: string) => void;
 }
 
 // crear el contexto
@@ -52,12 +53,20 @@ export const AuthProvider = ({ children }: any) => {
         })
     }
 
+    const changeUsername = (username: string) => {
+        dispatch({
+            type: "changeUsername",
+            payload: username
+        })
+    }
+
     return (
         <AuthContext.Provider value={{
             authState,
             signIn,
             chageFavoriteIcon,
-            logout
+            logout,
+            changeUsername
         }}>
             {children}
         </AuthContext.Provider>

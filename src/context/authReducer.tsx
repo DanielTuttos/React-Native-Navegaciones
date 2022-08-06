@@ -4,6 +4,7 @@ type AuthAction =
     | { type: 'signIn' }
     | { type: 'logout' }
     | { type: 'changeFavIcon', payload: string }
+    | { type: 'changeUsername', payload: string }
 
 // un reducer es una funcion comun y corriente y pura
 export const authReducer = (state: AuthState, action: AuthAction): AuthState => {
@@ -28,6 +29,13 @@ export const authReducer = (state: AuthState, action: AuthAction): AuthState => 
             return {
                 ...state,
                 favoriteIcon: action.payload
+            }
+
+        case 'changeUsername':
+            return {
+                ...state,
+                isLoggedIn: true,
+                username: action.payload
             }
 
         default:
