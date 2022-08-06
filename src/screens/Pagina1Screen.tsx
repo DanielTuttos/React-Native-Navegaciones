@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 // import { StackScreenProps } from '@react-navigation/stack';
 import { Button, Text, TouchableOpacity, View } from 'react-native';
-import { styles } from '../theme/appTheme';
+import { colores, styles } from '../theme/appTheme';
 import { DrawerScreenProps } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // interface Props extends StackScreenProps<any, any> { }; // lo extiende de la propiedades del stack para el tipado
 interface Props extends DrawerScreenProps<any, any> { }; // lo extiende de la propiedades del stack para el tipado
@@ -11,10 +12,16 @@ export const Pagina1Screen = ({ navigation }: Props) => {
 
     useEffect(() => {
         navigation.setOptions({
-            headerLeft: () => (<Button
-                title='Menu'
-                onPress={() => { navigation.toggleDrawer() }}
-            />)
+            headerLeft: () => (
+                <TouchableOpacity
+                    onPress={() => { navigation.toggleDrawer() }}
+                    style={{
+                        marginLeft: 10
+                    }}
+                >
+                    <Icon name="menu-outline" size={35} color={colores.primary} />
+                </TouchableOpacity>
+            )
         })
     }, [])
 
@@ -46,6 +53,7 @@ export const Pagina1Screen = ({ navigation }: Props) => {
                         nombre: "Pedro"
                     })}
                 >
+                    <Icon name="body-outline" color='white' size={35} />
                     <Text style={styles.botonGrandeTexto}>Pedro</Text>
                 </TouchableOpacity>
 
@@ -60,6 +68,7 @@ export const Pagina1Screen = ({ navigation }: Props) => {
                         nombre: "Maria"
                     })}
                 >
+                    <Icon name="woman-outline" color='white' size={35} />
                     <Text style={styles.botonGrandeTexto}>Maria</Text>
                 </TouchableOpacity>
             </View>

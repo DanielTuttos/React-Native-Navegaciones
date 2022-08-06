@@ -7,6 +7,7 @@ import { colores } from '../theme/appTheme';
 import { Platform, Text } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { TopTabNavigator } from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export const Tabs = () => {
@@ -32,21 +33,21 @@ const TabsAndroid = () => {
 
                     switch (route.name) {
                         case 'Tab1Screen':
-                            iconName = 'T1'
+                            iconName = 'headset'
                             break;
 
                         case 'Tab2Screen':
-                            iconName = 'T2'
+                            iconName = 'fast-food'
                             break;
 
                         case 'StackNavigator':
-                            iconName = 'ST'
+                            iconName = 'folder'
                             break;
 
                         default:
                             break;
                     }
-                    return <Text style={{ color }}>{iconName}</Text>
+                    return <Icon name={iconName + '-outline'} size={20} color={color} />
                 }
             })}
         >
@@ -83,21 +84,21 @@ const TabsIos = () => {
 
                     switch (route.name) {
                         case 'Tab1Screen':
-                            iconName = 'T1'
+                            iconName = 'headset'
                             break;
 
                         case 'Tab2Screen':
-                            iconName = 'T2'
+                            iconName = 'fast-food'
                             break;
 
                         case 'StackNavigator':
-                            iconName = 'ST'
+                            iconName = 'folder'
                             break;
 
                         default:
                             break;
                     }
-                    return <Text style={{ color }}>{iconName}</Text>
+                    return <Icon name={iconName + '-outline'} size={40} color={color} />
                 }
             })}
         >
