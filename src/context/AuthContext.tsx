@@ -22,6 +22,7 @@ export const authInitialState: AuthState = {
 export interface AuthContextProps {
     authState: AuthState;
     signIn: () => void;
+    logout: () => void;
     chageFavoriteIcon: (iconName: string) => void;
 }
 
@@ -38,6 +39,11 @@ export const AuthProvider = ({ children }: any) => {
             type: 'signIn'
         })
     }
+    const logout = () => {
+        dispatch({
+            type: 'logout'
+        })
+    }
 
     const chageFavoriteIcon = (iconName: string) => {
         dispatch({
@@ -50,7 +56,8 @@ export const AuthProvider = ({ children }: any) => {
         <AuthContext.Provider value={{
             authState,
             signIn,
-            chageFavoriteIcon
+            chageFavoriteIcon,
+            logout
         }}>
             {children}
         </AuthContext.Provider>
